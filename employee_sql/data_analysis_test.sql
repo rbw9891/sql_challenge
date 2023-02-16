@@ -7,7 +7,7 @@ ON e.emp_no = s.emp_no;
 -- list first name, last name, and hire date for employees hired in 1986
 SELECT first_name, last_name, hire_date
 FROM employees
-WHERE hire_date LIKE '%1986';
+WHERE EXTRACT('year' from hire_date)=1986;
 
 -- list each manager w/ dept_no, dept_name, emp_no, last_name, first_name
 SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
