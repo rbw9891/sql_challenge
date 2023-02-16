@@ -48,17 +48,8 @@ WHERE emp_no IN (
 SELECT e.emp_no, e.last_name, e.first_name, d.dept_name
 FROM employees e 
 INNER JOIN dept_emp de ON e.emp_no = de.emp_no
-AND de.dept_no = d.dept_no
 INNER JOIN departments d ON de.dept_no = d.dept_no
-WHERE emp_no IN (
-    SELECT emp_no
-    FROM dept_emp
-    WHERE dept_no IN (
-        SELECT dept_no
-        FROM departments
-        WHERE dept_name IN ('Sales','Development')
-    )
-);
+WHERE d.dept_name IN ('Sales','Development');
 
 -- list frequency counts, in descending order, of all employee last names
 SELECT last_name, Count(last_name) AS name_frequency
