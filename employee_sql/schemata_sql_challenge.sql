@@ -1,4 +1,4 @@
-﻿
+﻿-- create tables with applicable data types/lengths, not nulls, and primary keys
 
 CREATE TABLE "departments" (
     "dept_no" CHAR(4)   NOT NULL,
@@ -53,6 +53,7 @@ CREATE TABLE "titles" (
      )
 );
 
+-- alter tables to contain foreign key constraints
 ALTER TABLE "dept_emp" ADD CONSTRAINT "fk_dept_emp_emp_no" FOREIGN KEY("emp_no")
 REFERENCES "employees" ("emp_no");
 
